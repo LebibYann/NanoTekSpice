@@ -26,7 +26,7 @@ RED			=		"\033[0;31m"
 all:				$(EXEC)
 
 %.o: %.cpp
-			@$(CC) -o $@ -c $< $(INCLUDE) &&\
+			@$(CC) -o $@ -c $< $(INCLUDE) $(FLAG) &&\
 			$(ECHO) $(TEAL) "[OK]" $(GREEN) $< $(DEFAULT) ||\
 			$(ECHO) $(RED)  "[KO]" $< $(DEFAULT)
 

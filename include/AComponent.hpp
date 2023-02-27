@@ -29,15 +29,15 @@ namespace nts
                     Tristate compute();
                     void setLink(Link link);
                     Tristate getState() const;
+                    void setState(Tristate state);
                 private:
                     bool _computed;
                     Tristate _state;
                     std::vector<Link> _links;
             };
-
             void simulate(std::size_t tick);
             void setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin);
-            Tristate getLink(std::size_t pin);
+            void setState(nts::Tristate state);
         protected:
             std::size_t _npin;
             std::vector<Pin> _pins;

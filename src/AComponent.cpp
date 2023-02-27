@@ -26,6 +26,11 @@ nts::Tristate nts::Acomponent::Pin::getState() const
     return (_state);
 }
 
+void nts::Acomponent::Pin::setState(Tristate state)
+{
+    _state = state;
+}
+
 nts::Tristate nts::Acomponent::Pin::compute()
 {
     Tristate result = Undefined;
@@ -54,4 +59,8 @@ void nts::Acomponent::setLink(std::size_t pin, nts::IComponent &other, std::size
 {
     if (pin <= _npin)
         _pins[pin - 1].setLink(Link(&other, otherPin));
+}
+
+void nts::Acomponent::setState(nts::Tristate state)
+{
 }

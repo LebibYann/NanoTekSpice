@@ -24,6 +24,7 @@ namespace nts
             Tristate compute(std::size_t pin);
         protected:
             Tristate _state;
+            bool _changed;
     };
 
     class OutputComponent : public SpecialComponent
@@ -56,5 +57,6 @@ namespace nts
             Tristate compute(std::size_t pin);
         protected:
             Tristate _state;
+            bool _changed;
     };
 }

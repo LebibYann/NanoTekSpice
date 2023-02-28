@@ -9,6 +9,7 @@
 
 #include "IComponent.hpp"
 #include <vector>
+#include <memory>
 
 namespace nts
 {   
@@ -33,7 +34,7 @@ namespace nts
                 private:
                     bool _computed;
                     Tristate _state;
-                    std::vector<Link> _links;
+                    std::unique_ptr<Link> _link;
             };
             void simulate(std::size_t tick);
             void setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin);

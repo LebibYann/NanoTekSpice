@@ -12,13 +12,13 @@ nts::Tristate nts::Acomponent::Link::compute()
     return (_comp->compute(_pin));
 }
 
-nts::Acomponent::Pin::Pin() : _computed(false), _state(Undefined)
+nts::Acomponent::Pin::Pin() : _computed(false), _state(Undefined), _link(nullptr)
 {
 }
 
 void nts::Acomponent::Pin::setLink(Link link)
 {
-    _links.push_back(link);
+    _link = std::make_unique<Link>(link);
 }
 
 nts::Tristate nts::Acomponent::Pin::getState() const
@@ -34,20 +34,15 @@ void nts::Acomponent::Pin::setState(Tristate state)
 nts::Tristate nts::Acomponent::Pin::compute()
 {
     Tristate result = Undefined;
-    Tristate current;
-    size_t i;
 
     if (_computed)
         return (_state);
     _computed = true;
-    for (i = 0; i < _links.size(); i++){
-        current = _links[i].compute();
-        if (current > result){
-            result = current;
-        }
-    }
+    if (_link == nullptr)
+        result = nts::Undefined;
+    else
+        result = _link->compute();
     _computed = false;
-    _state = result;
     return (result);
 }
 

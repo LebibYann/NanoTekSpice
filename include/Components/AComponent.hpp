@@ -12,7 +12,7 @@
 #include <memory>
 
 namespace nts
-{   
+{
     class Acomponent : public IComponent
     {
         public:

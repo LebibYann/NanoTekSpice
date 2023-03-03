@@ -103,3 +103,28 @@ nts::Tristate nts::ClockComponent::compute(std::size_t pin)
         return (_pins[0].getState());
     return (Undefined);
 }
+
+std::unique_ptr<nts::IComponent> nts::InputComponent::clone()
+{
+    return std::make_unique<nts::InputComponent>();
+}
+
+std::unique_ptr<nts::IComponent> nts::OutputComponent::clone()
+{
+    return std::make_unique<nts::OutputComponent>();
+}
+
+std::unique_ptr<nts::IComponent> nts::TrueComponent::clone()
+{
+    return std::make_unique<nts::TrueComponent>();
+}
+
+std::unique_ptr<nts::IComponent> nts::FalseComponent::clone()
+{
+    return std::make_unique<nts::FalseComponent>();
+}
+
+std::unique_ptr<nts::IComponent> nts::ClockComponent::clone()
+{
+    return std::make_unique<nts::ClockComponent>();
+}

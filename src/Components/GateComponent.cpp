@@ -183,3 +183,53 @@ nts::Component4081::Component4081()
     _comps[3]->setLink(2, *this, 13);
     setLink(11, *_comps[3], 3);
 }
+
+std::unique_ptr<nts::IComponent> nts::Component4001::clone()
+{
+    return std::make_unique<nts::Component4001>();
+}
+
+std::unique_ptr<nts::IComponent> nts::Component4008::clone()
+{
+    return std::make_unique<nts::Component4008>();
+}
+
+std::unique_ptr<nts::IComponent> nts::Component4011::clone()
+{
+    return std::make_unique<nts::Component4011>();
+}
+
+std::unique_ptr<nts::IComponent> nts::Component4013::clone()
+{
+    return std::make_unique<nts::Component4013>();
+}
+
+std::unique_ptr<nts::IComponent> nts::Component4017::clone()
+{
+    return std::make_unique<nts::Component4017>();
+}
+
+std::unique_ptr<nts::IComponent> nts::Component4030::clone()
+{
+    return std::make_unique<nts::Component4030>();
+}
+
+std::unique_ptr<nts::IComponent> nts::Component4040::clone()
+{
+    return std::make_unique<nts::Component4040>();
+}
+
+std::unique_ptr<nts::IComponent> nts::Component4069::clone()
+{
+    return std::make_unique<nts::Component4069>();
+}
+
+std::unique_ptr<nts::IComponent> nts::Component4071::clone()
+{
+    return std::make_unique<nts::Component4071>();
+}
+
+std::unique_ptr<nts::IComponent> nts::Component4081::clone()
+{
+    return std::make_unique<nts::Component4081>();
+}

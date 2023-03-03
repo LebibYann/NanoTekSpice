@@ -92,6 +92,31 @@ nts::Tristate nts::NotComponent::compute(std::size_t pin)
     return (state);
 }
 
+std::unique_ptr<nts::IComponent> nts::AndComponent::clone()
+{
+    return std::make_unique<nts::AndComponent>();
+}
+
+std::unique_ptr<nts::IComponent> nts::NorComponent::clone()
+{
+    return std::make_unique<nts::NorComponent>();
+}
+
+std::unique_ptr<nts::IComponent> nts::OrComponent::clone()
+{
+    return std::make_unique<nts::OrComponent>();
+}
+
+std::unique_ptr<nts::IComponent> nts::XorComponent::clone()
+{
+    return std::make_unique<nts::XorComponent>();
+}
+
+std::unique_ptr<nts::IComponent> nts::NotComponent::clone()
+{
+    return std::make_unique<nts::NotComponent>();
+}
+
 nts::Tristate operator&(nts::Tristate first, nts::Tristate second)
 {
     if (first == nts::Undefined && second == nts::False)

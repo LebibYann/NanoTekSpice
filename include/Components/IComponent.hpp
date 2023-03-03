@@ -26,5 +26,6 @@ namespace nts
         virtual nts::Tristate compute(std::size_t pin) = 0;
         virtual void setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin) = 0;
         virtual void setState(nts::Tristate state) = 0;
+        virtual std::unique_ptr<nts::IComponent> clone() = 0;
     };
 }

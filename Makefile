@@ -11,7 +11,7 @@ CC			=		g++
 RM			=		rm -f
 ECHO		=		echo -e
 
-INCLUDE		=		-I ./include/
+INCLUDE		=		-I./include -I./include/Components
 FLAG		=		-g3
 
 SRC			=		$(wildcard src/*.cpp)

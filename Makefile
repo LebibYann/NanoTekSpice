@@ -1,10 +1,9 @@
 ##
-## EPITECH PROJECT, 2022
+## EPITECH PROJECT, 2023
 ## Makefile
 ## File description:
 ## Makefile used to compile c++ program.
 ##
-
 
 EXEC		=		NanoTekSpice
 

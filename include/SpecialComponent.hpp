@@ -11,7 +11,7 @@
 
 namespace nts
 {
-    class SpecialComponent : public Acomponent 
+    class SpecialComponent : public Acomponent
     {
     };
 

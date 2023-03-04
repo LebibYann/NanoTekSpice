@@ -39,6 +39,7 @@ namespace nts
             void simulate(std::size_t tick);
             void setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin);
             void setState(nts::Tristate state);
+            
         protected:
             std::size_t _npin;
             std::vector<Pin> _pins;

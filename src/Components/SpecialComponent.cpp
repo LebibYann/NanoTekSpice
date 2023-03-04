@@ -21,6 +21,7 @@ void nts::InputComponent::setState(Tristate state)
 
 void nts::InputComponent::simulate(std::size_t tick)
 {
+    (void) tick;
     if (_changed)
     {
         _pins[0].setState(_state);
@@ -30,7 +31,9 @@ void nts::InputComponent::simulate(std::size_t tick)
 
 nts::Tristate nts::InputComponent::compute(std::size_t pin)
 {
-    return (_pins[0].getState());
+    if (pin == 1)
+        return (_pins[0].getState());
+    return (nts::Undefined);
 }
 
 nts::OutputComponent::OutputComponent()

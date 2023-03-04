@@ -18,7 +18,7 @@ namespace nts
     public:
         AndComponent();
         nts::Tristate compute(std::size_t pin);
-        std::unique_ptr<nts::IComponent> nts::AndComponent::clone();
+        std::unique_ptr<nts::IComponent> clone();
     };
 
     class NorComponent : public ElementaryComponent
@@ -26,7 +26,7 @@ namespace nts
     public:
         NorComponent();
         nts::Tristate compute(std::size_t pin);
-        std::unique_ptr<nts::IComponent> nts::NorComponent::clone();
+        std::unique_ptr<nts::IComponent> clone();
     };
 
     class OrComponent : public ElementaryComponent
@@ -34,7 +34,7 @@ namespace nts
     public:
         OrComponent();
         Tristate compute(std::size_t pin);
-        std::unique_ptr<nts::IComponent> nts::OrComponent::clone();
+        std::unique_ptr<nts::IComponent> clone();
     };
 
     class XorComponent : public ElementaryComponent
@@ -42,7 +42,7 @@ namespace nts
     public:
         XorComponent();
         Tristate compute(std::size_t pin);
-        std::unique_ptr<nts::IComponent> nts::XorComponent::clone();
+        std::unique_ptr<nts::IComponent> clone();
     };
 
     class NotComponent : public ElementaryComponent
@@ -50,7 +50,7 @@ namespace nts
     public:
         NotComponent();
         Tristate compute(std::size_t pin);
-        std::unique_ptr<nts::IComponent> nts::NotComponent::clone();
+        std::unique_ptr<nts::IComponent> clone();
     };
 }
 

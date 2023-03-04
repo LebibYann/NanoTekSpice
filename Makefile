@@ -5,16 +5,16 @@
 ## Makefile used to compile c++ program.
 ##
 
-EXEC		=		NanoTekSpice
+EXEC		=		nanotekspice
 
 CC			=		g++
 RM			=		rm -f
 ECHO		=		echo -e
 
-INCLUDE		=		-I./include -I./include/Components
-FLAG		=		-g3
+INCLUDE		=		-I./include/Controller -I./include/Components
+FLAG		=		-g3 -W -Wall -Werror
 
-SRC			=		$(wildcard src/*.cpp)
+SRC			=		$(wildcard src/*.cpp) $(wildcard src/Components/*.cpp)
 OBJ			=		$(SRC:.cpp=.o)
 
 DEFAULT		=		"\033[00m"
@@ -30,7 +30,7 @@ all:				$(EXEC)
 			$(ECHO) $(RED)  "[KO]" $< $(DEFAULT)
 
 $(EXEC):		$(OBJ)
-			@$(CC) $(FLAG) -o $@ $^ $(INCLUDE)
+			@$(CC) $(FLAG) -o $@ $^
 
 clean:
 			@$(RM) $(OBJ) &&\

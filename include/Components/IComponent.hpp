@@ -8,6 +8,7 @@
 #pragma once
 
 #include <cstddef>
+#include <memory>
 #include <iostream>
 
 namespace nts
@@ -29,3 +30,5 @@ namespace nts
         virtual std::unique_ptr<nts::IComponent> clone() = 0;
     };
 }
+
+std::ostream &operator<<(std ::ostream &s, nts ::Tristate v);

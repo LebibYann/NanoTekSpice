@@ -72,33 +72,3 @@ std::unique_ptr<nts::IComponent> nts::Component4013::clone()
 {
     return std::make_unique<nts::Component4013>();
 }
-
-std::unique_ptr<nts::IComponent> nts::Component4017::clone()
-{
-    return std::make_unique<nts::Component4017>();
-}
-
-std::unique_ptr<nts::IComponent> nts::Component4094::clone()
-{
-    return std::make_unique<nts::Component4094>();
-}
-
-std::unique_ptr<nts::IComponent> nts::Component4512::clone()
-{
-    return std::make_unique<nts::Component4512>();
-}
-
-std::unique_ptr<nts::IComponent> nts::Component4514::clone()
-{
-    return std::make_unique<nts::Component4514>();
-}
-
-std::unique_ptr<nts::IComponent> nts::Component4801::clone()
-{
-    return std::make_unique<nts::Component4801>();
-}
-
-std::unique_ptr<nts::IComponent> nts::Component2716::clone()
-{
-    return std::make_unique<nts::Component2716>();
-}

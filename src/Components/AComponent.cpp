@@ -45,7 +45,10 @@ nts::Tristate nts::Acomponent::Pin::compute()
     return (result);
 }
 
-void nts::Acomponent::simulate(std::size_t tick) {}
+void nts::Acomponent::simulate(std::size_t tick) 
+{
+    (void) tick;
+}
 
 void nts::Acomponent::setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin)
 {
@@ -53,4 +56,7 @@ void nts::Acomponent::setLink(std::size_t pin, nts::IComponent &other, std::size
         _pins[pin - 1].setLink(Link(&other, otherPin));
 }
 
-void nts::Acomponent::setState(nts::Tristate state) {}
+void nts::Acomponent::setState(nts::Tristate state) 
+{
+    (void) state;
+}

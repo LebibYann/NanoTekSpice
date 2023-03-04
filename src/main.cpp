@@ -5,30 +5,26 @@
 ** main
 */
 
-#include "IComponent.hpp"
-#include "SpecialComponent.hpp"
-#include "ElementaryComponent.hpp"
-#include "GateComponent.hpp"
-#include <iostream>
-#include <memory>
-
-std ::ostream &operator<<(std ::ostream &s, nts ::Tristate v)
-{
-    if (v == nts::Undefined)
-        return (s << 'U');
-    return (s << static_cast<int>(v));
-}
+#include "Terminal.hpp"
 
 int main(void)
 {
-    std::unique_ptr<nts::IComponent> gate = std::make_unique<nts::XorComponent>();
-    std::unique_ptr<nts::IComponent> input1 = std::make_unique<nts::TrueComponent>();
-    std::unique_ptr<nts::IComponent> input2 = std::make_unique<nts::FalseComponent>();
-    std::unique_ptr<nts::IComponent> output = std::make_unique<nts::OutputComponent>();
-    std::unique_ptr<nts::IComponent> chip = std::make_unique<nts::Component4001>();
-    chip -> setLink(1, *input1, 1);
-    chip -> setLink(2, *input2, 1);
-    output->setLink(1, *chip, 3);
-    std ::cout << " !(" << input1 -> compute(1) << "||" << input2 -> compute(1) << ")->" << output -> compute (1) << std :: endl ;
+    nts::Circuit circuit;
+
+    try{
+        circuit.addComponent("clock", "a");
+        circuit.addComponent("clock", "b");
+        circuit.addComponent("4071", "or");
+        circuit.addComponent("output", "s");
+        circuit.linkComponent("a", 1, "or", 1);
+        circuit.linkComponent("b", 1, "or", 2);
+        circuit.linkComponent("or", 3, "s", 1);
+    }catch(nts::Circuit::ComponentError &e)
+    {
+        std::cerr << e.what() << std::endl;
+        return (84);
+    }
+    nts::Terminal terminal(circuit);
+    terminal.Start();
     return (0);
 }

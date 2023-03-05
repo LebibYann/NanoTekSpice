@@ -68,12 +68,12 @@ void nts::Circuit::display()
     std::cout << "input(s):" << std::endl;
     for (auto it = _components.begin(); it != _components.end(); ++it) {
         if (dynamic_cast<nts::InputComponent *>((it->second).get()) || (dynamic_cast<nts::ClockComponent *>((it->second).get())))
-            std::cout << "\t" << it->first << ": " << it->second->compute(1) << std::endl;
+            std::cout << "  " << it->first << ": " << it->second->compute(1) << std::endl;
     }
     std::cout << "output(s):" << std::endl;
     for (auto it = _components.begin(); it != _components.end(); ++it) {
         if (dynamic_cast<nts::OutputComponent *>((it->second).get()))
-            std::cout << "\t" << it->first << ": " << it->second->compute(1) << std::endl;
+            std::cout << "  " << it->first << ": " << it->second->compute(1) << std::endl;
     }
 }
 

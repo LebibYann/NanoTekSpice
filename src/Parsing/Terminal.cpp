@@ -21,6 +21,7 @@ bool nts::Terminal::readLine()
     std::cout << "> ";
     if (!std::getline(std::cin, line))
         return (false);
+    line = parsing::erase_padding(line);
     if (line.compare("exit") == 0)
         return (false);
     else if (line.compare("display") == 0)
@@ -32,6 +33,8 @@ bool nts::Terminal::readLine()
     else if ((pars = line.find("=")) != std::string::npos){
         name = line.substr(0, pars);
         value = line.substr(pars + 1);
+        name = parsing::erase_padding(name);
+        value = parsing::erase_padding(value);
         if (value.compare("U") == 0)
             _circuit.setState(name, nts::Undefined);
         else if (value.compare("1") == 0)
@@ -44,5 +47,6 @@ bool nts::Terminal::readLine()
 
 void nts::Terminal::Start()
 {
+    std::signal(SIGINT, signal_handler);
     while (readLine());
 }

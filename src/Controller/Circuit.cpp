@@ -20,9 +20,21 @@ nts::Circuit::Circuit() : _tick(0)
 {
 }
 
+bool nts::Circuit::valid_name(std::string name)
+{
+    if (*name.begin() >= '0' && *name.begin() <= '9')
+        return (false);
+    if (name.find('#') == name.npos)
+        return (true);
+    return (false);
+}
+
 void nts::Circuit::addComponent(std::string type, std::string name)
 {
-    _components.insert({name, _factory.createComponent(type)});
+    if (valid_name(name))
+        _components.insert({name, _factory.createComponent(type)});
+    else
+        throw nts::Circuit::ComponentError("Invalid component name.");
 }
 
 void nts::Circuit::linkComponent(std::string comp1, std::size_t pin1, std::string comp2, std::size_t pin2)
@@ -65,9 +77,18 @@ void nts::Circuit::display()
     }
 }
 
+volatile sig_atomic_t flag = 1;
+
+void signal_handler(int signal)
+{
+    (void) signal;
+    flag = 0;
+}
+
 void nts::Circuit::loop()
 {
-    while (1){
+    flag = 1;
+    while (flag){
         simulate();
         display();
     }

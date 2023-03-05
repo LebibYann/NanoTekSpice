@@ -27,4 +27,11 @@ namespace nts
         Component4013();
         std::unique_ptr<nts::IComponent> clone();
     };
+
+    class Component4017 : public AdvancedComponent
+    {
+    public:
+        Component4017();
+        std::unique_ptr<nts::IComponent> clone();
+    };
 }

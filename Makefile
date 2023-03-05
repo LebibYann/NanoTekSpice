@@ -11,10 +11,11 @@ CC			=		g++
 RM			=		rm -f
 ECHO		=		echo -e
 
-INCLUDE		=		-I./include/Controller -I./include/Components
+INCLUDE		=		-I./include/Components/Abstract -I./include/Components -I./include/Controller -I./include/Parsing
 FLAG		=		-g3 -W -Wall -Werror
 
-SRC			=		$(wildcard src/*.cpp) $(wildcard src/Components/*.cpp)
+SRC			=		$(wildcard src/*.cpp) $(wildcard src/Components/*.cpp) $(wildcard src/Components/Abstract/*.cpp)\
+					$(wildcard src/Controller/*.cpp) $(wildcard src/Parsing/*.cpp)
 OBJ			=		$(SRC:.cpp=.o)
 
 DEFAULT		=		"\033[00m"

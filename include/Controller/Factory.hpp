@@ -15,12 +15,26 @@
 #include <map>
 #include <functional>
 
-class Factory
+namespace nts
 {
-public:
-    Factory();
+    class Factory
+    {
+    public:
+        class InvalidNameError : public std::exception
+        {
+        public:
+            InvalidNameError(std::string msg);
+            const char *what();
 
-    std::unique_ptr<nts::IComponent> createComponent(const std::string &name);
-private:
-    std::map<std::string, std::unique_ptr<nts::IComponent>> _register;
-};
+        private:
+            const std::string _msg;
+        };
+
+        Factory();
+
+        std::unique_ptr<nts::IComponent> createComponent(const std::string &name);
+
+    private:
+        std::map<std::string, std::unique_ptr<nts::IComponent>> _register;
+    };
+}

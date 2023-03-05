@@ -6,21 +6,34 @@
 */
 
 #include "Terminal.hpp"
+#include "FileReader.hpp"
 
-int main(void)
+int main(int argc, char **argv)
 {
     nts::Circuit circuit;
 
+    if (argc != 2)
+        return (84);
     try{
-        circuit.addComponent("clock", "a");
-        circuit.addComponent("clock", "b");
-        circuit.addComponent("4071", "or");
-        circuit.addComponent("output", "s");
-        circuit.linkComponent("a", 1, "or", 1);
-        circuit.linkComponent("b", 1, "or", 2);
-        circuit.linkComponent("or", 3, "s", 1);
-    }catch(nts::Circuit::ComponentError &e)
+        nts::FileReader reader(argv[1], circuit);
+        reader.read();
+    } catch (nts::Circuit::ComponentError &e)
     {
+        std::cerr << e.what() << std::endl;
+        return (84);
+    } catch (parsing::ParsingError &e)
+    {
+        std::cerr << e.what() << std::endl;
+        return (84);
+    } catch (nts::FileReader::InvalidFileError &e)
+    {
+        std::cerr << e.what() << std::endl;
+        return (84);
+    } catch (nts::Factory::InvalidNameError &e)
+    {
+        std::cerr << e.what() << std::endl;
+        return (84);
+    } catch(nts::IComponent::LinkError &e){
         std::cerr << e.what() << std::endl;
         return (84);
     }

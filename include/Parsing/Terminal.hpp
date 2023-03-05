@@ -10,6 +10,7 @@
 #include <sstream>
 
 #include "Circuit.hpp"
+#include "Parsing.hpp"
 
 namespace nts
 {

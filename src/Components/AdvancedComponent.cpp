@@ -38,6 +38,22 @@ nts::Component4008::Component4008()
     setLink(12, *_comps[2], 4);
     setLink(13, *_comps[3], 4);
     setLink(14, *_comps[3], 5);
+    _pins[0].setType(nts::INPUT);
+    _pins[1].setType(nts::INPUT);
+    _pins[2].setType(nts::INPUT);
+    _pins[3].setType(nts::INPUT);
+    _pins[4].setType(nts::INPUT);
+    _pins[5].setType(nts::INPUT);
+    _pins[6].setType(nts::INPUT);
+    _pins[7].setType(nts::FREE);
+    _pins[8].setType(nts::INPUT);
+    _pins[9].setType(nts::OUTPUT);
+    _pins[10].setType(nts::OUTPUT);
+    _pins[11].setType(nts::OUTPUT);
+    _pins[12].setType(nts::OUTPUT);
+    _pins[13].setType(nts::OUTPUT);
+    _pins[14].setType(nts::INPUT);
+    _pins[15].setType(nts::FREE);
 }
 
 nts::Component4013::Component4013()

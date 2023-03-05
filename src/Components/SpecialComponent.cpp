@@ -10,7 +10,9 @@
 nts::InputComponent::InputComponent()
 {
     _pins.resize(1);
+    _npin = 1;
     _changed = false;
+    _pins[0].setType(nts::FREE);
 }
 
 void nts::InputComponent::setState(Tristate state)
@@ -40,6 +42,7 @@ nts::OutputComponent::OutputComponent()
 {
     _pins.resize(1);
     _npin = 1;
+    _pins[0].setType(nts::INPUT);
 }
 
 nts::Tristate nts::OutputComponent::compute(std::size_t pin)
@@ -53,6 +56,7 @@ nts::TrueComponent::TrueComponent()
 {
     _pins.resize(1);
     _npin = 1;
+    _pins[0].setType(nts::FREE);
 }
 
 nts::Tristate nts::TrueComponent::compute(std::size_t pin)
@@ -66,6 +70,7 @@ nts::FalseComponent::FalseComponent()
 {
     _pins.resize(1);
     _npin = 1;
+    _pins[0].setType(nts::FREE);
 }
 
 nts::Tristate nts::FalseComponent::compute(std::size_t pin)
@@ -81,6 +86,7 @@ nts::ClockComponent::ClockComponent()
     _state = Undefined;
     _pins.resize(1);
     _npin = 1;
+    _pins[0].setType(nts::FREE);
 }
 
 void nts::ClockComponent::setState(Tristate state)

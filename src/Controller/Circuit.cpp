@@ -31,6 +31,8 @@ bool nts::Circuit::valid_name(std::string name)
 
 void nts::Circuit::addComponent(std::string type, std::string name)
 {
+    if (_components.find(name) != _components.end())  
+        throw nts::Circuit::ComponentError("Component '" + name + "' already exist.");
     if (valid_name(name))
         _components.insert({name, _factory.createComponent(type)});
     else

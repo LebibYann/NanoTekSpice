@@ -40,6 +40,21 @@ nts::Component4001::Component4001()
     _comps[3]->setLink(2, *this, 13);
     _comps[7]->setLink(1, *_comps[3], 3);
     setLink(11, *_comps[7], 2);
+    
+    _pins[0].setType(nts::INPUT);
+    _pins[1].setType(nts::INPUT);
+    _pins[2].setType(nts::OUTPUT);
+    _pins[3].setType(nts::OUTPUT);
+    _pins[4].setType(nts::INPUT);
+    _pins[5].setType(nts::INPUT);
+    _pins[6].setType(nts::FREE);
+    _pins[7].setType(nts::INPUT);
+    _pins[8].setType(nts::INPUT);
+    _pins[9].setType(nts::OUTPUT);
+    _pins[10].setType(nts::OUTPUT);
+    _pins[11].setType(nts::INPUT);
+    _pins[12].setType(nts::INPUT);
+    _pins[13].setType(nts::FREE);
 }
 
 nts::Component4011::Component4011()
@@ -75,6 +90,20 @@ nts::Component4011::Component4011()
     _comps[3]->setLink(2, *this, 13);
     _comps[7]->setLink(1, *_comps[3], 3);
     setLink(11, *_comps[7], 2);
+    _pins[0].setType(nts::INPUT);
+    _pins[1].setType(nts::INPUT);
+    _pins[2].setType(nts::OUTPUT);
+    _pins[3].setType(nts::OUTPUT);
+    _pins[4].setType(nts::INPUT);
+    _pins[5].setType(nts::INPUT);
+    _pins[6].setType(nts::FREE);
+    _pins[7].setType(nts::INPUT);
+    _pins[8].setType(nts::INPUT);
+    _pins[9].setType(nts::OUTPUT);
+    _pins[10].setType(nts::OUTPUT);
+    _pins[11].setType(nts::INPUT);
+    _pins[12].setType(nts::INPUT);
+    _pins[13].setType(nts::FREE);
 }
 
 nts::Component4030::Component4030()
@@ -102,6 +131,20 @@ nts::Component4030::Component4030()
     _comps[3]->setLink(1, *this, 12);
     _comps[3]->setLink(2, *this, 13);
     setLink(11, *_comps[3], 3);
+    _pins[0].setType(nts::INPUT);
+    _pins[1].setType(nts::INPUT);
+    _pins[2].setType(nts::OUTPUT);
+    _pins[3].setType(nts::OUTPUT);
+    _pins[4].setType(nts::INPUT);
+    _pins[5].setType(nts::INPUT);
+    _pins[6].setType(nts::FREE);
+    _pins[7].setType(nts::INPUT);
+    _pins[8].setType(nts::INPUT);
+    _pins[9].setType(nts::OUTPUT);
+    _pins[10].setType(nts::OUTPUT);
+    _pins[11].setType(nts::INPUT);
+    _pins[12].setType(nts::INPUT);
+    _pins[13].setType(nts::FREE);
 }
 
 nts::Component4069::Component4069()
@@ -128,6 +171,20 @@ nts::Component4069::Component4069()
     setLink(10, *_comps[4], 2);
     _comps[5]->setLink(1, *this, 13);
     setLink(12, *_comps[5], 2);
+    _pins[0].setType(nts::INPUT);
+    _pins[1].setType(nts::OUTPUT);
+    _pins[2].setType(nts::INPUT);
+    _pins[3].setType(nts::OUTPUT);
+    _pins[4].setType(nts::INPUT);
+    _pins[5].setType(nts::OUTPUT);
+    _pins[6].setType(nts::FREE);
+    _pins[7].setType(nts::OUTPUT);
+    _pins[8].setType(nts::INPUT);
+    _pins[9].setType(nts::OUTPUT);
+    _pins[10].setType(nts::INPUT);
+    _pins[11].setType(nts::OUTPUT);
+    _pins[12].setType(nts::INPUT);
+    _pins[13].setType(nts::FREE);
 }
 
 nts::Component4071::Component4071()
@@ -155,6 +212,20 @@ nts::Component4071::Component4071()
     _comps[3]->setLink(1, *this, 12);
     _comps[3]->setLink(2, *this, 13);
     setLink(11, *_comps[3], 3);
+    _pins[0].setType(nts::INPUT);
+    _pins[1].setType(nts::INPUT);
+    _pins[2].setType(nts::OUTPUT);
+    _pins[3].setType(nts::OUTPUT);
+    _pins[4].setType(nts::INPUT);
+    _pins[5].setType(nts::INPUT);
+    _pins[6].setType(nts::FREE);
+    _pins[7].setType(nts::INPUT);
+    _pins[8].setType(nts::INPUT);
+    _pins[9].setType(nts::OUTPUT);
+    _pins[10].setType(nts::OUTPUT);
+    _pins[11].setType(nts::INPUT);
+    _pins[12].setType(nts::INPUT);
+    _pins[13].setType(nts::FREE);
 }
 
 nts::Component4081::Component4081()
@@ -182,6 +253,20 @@ nts::Component4081::Component4081()
     _comps[3]->setLink(1, *this, 12);
     _comps[3]->setLink(2, *this, 13);
     setLink(11, *_comps[3], 3);
+    _pins[0].setType(nts::INPUT);
+    _pins[1].setType(nts::INPUT);
+    _pins[2].setType(nts::OUTPUT);
+    _pins[3].setType(nts::OUTPUT);
+    _pins[4].setType(nts::INPUT);
+    _pins[5].setType(nts::INPUT);
+    _pins[6].setType(nts::FREE);
+    _pins[7].setType(nts::INPUT);
+    _pins[8].setType(nts::INPUT);
+    _pins[9].setType(nts::OUTPUT);
+    _pins[10].setType(nts::OUTPUT);
+    _pins[11].setType(nts::INPUT);
+    _pins[12].setType(nts::INPUT);
+    _pins[13].setType(nts::FREE);
 }
 
 std::unique_ptr<nts::IComponent> nts::Component4001::clone()

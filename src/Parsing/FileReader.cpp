@@ -21,9 +21,9 @@ nts::FileReader::FileReader(std::string file, Circuit &circuit) : _file(file), _
     std::size_t found = file.rfind('.');
 
     if (found == file.npos)
-        throw;
+        throw InvalidFileError("Invalid file extension.");
     if (file.substr(found, file.size()).compare(".nts") != 0)
-        throw;
+        throw InvalidFileError("Invalid file extension.");;
 }
 
 void nts::FileReader::readChipsetLine(std::string line)
@@ -51,6 +51,8 @@ void nts::FileReader::readLinkLine(std::string line)
     std::string comp2;
     std::size_t pin2;
 
+    if (parsing::is_valid(parsing::erase_padding(line)))
+        return;
     stream << line;
     comp1 = parsing::read_until(stream, ':');
     pin1 = parsing::read_int(stream);
@@ -74,8 +76,10 @@ void nts::FileReader::read()
             throw InvalidFileError("Invalid file configuration");
         if (line.compare(".links:") == 0)
             break;
-        readChipsetLine(line);
+        if (parsing::erase_padding(line).compare("") != 0)
+            readChipsetLine(line);
     }
     while (getline(file, line))
-        readLinkLine(line);
+        if (parsing::erase_padding(line).compare("") != 0)
+            readLinkLine(line);
 }

@@ -11,6 +11,9 @@ nts::AndComponent::AndComponent()
 {
     _pins.resize(3);
     _npin = 3;
+    _pins[0].setType(nts::INPUT);
+    _pins[1].setType(nts::INPUT);
+    _pins[2].setType(nts::FREE);
 }
 
 nts::Tristate nts::AndComponent::compute(std::size_t pin)
@@ -28,6 +31,9 @@ nts::NorComponent::NorComponent()
 {
     _pins.resize(3);
     _npin = 3;
+    _pins[0].setType(nts::INPUT);
+    _pins[1].setType(nts::INPUT);
+    _pins[2].setType(nts::FREE);
 }
 
 nts::Tristate nts::NorComponent::compute(std::size_t pin)
@@ -45,6 +51,9 @@ nts::OrComponent::OrComponent()
 {
     _pins.resize(3);
     _npin = 3;
+    _pins[0].setType(nts::INPUT);
+    _pins[1].setType(nts::INPUT);
+    _pins[2].setType(nts::FREE);
 }
 
 nts::Tristate nts::OrComponent::compute(std::size_t pin)
@@ -62,6 +71,9 @@ nts::XorComponent::XorComponent()
 {
     _pins.resize(3);
     _npin = 3;
+    _pins[0].setType(nts::INPUT);
+    _pins[1].setType(nts::INPUT);
+    _pins[2].setType(nts::FREE);
 }
 
 nts::Tristate nts::XorComponent::compute(std::size_t pin)
@@ -79,6 +91,8 @@ nts::NotComponent::NotComponent()
 {
     _pins.resize(2);
     _npin = 2;
+    _pins[0].setType(nts::INPUT);
+    _pins[1].setType(nts::FREE);
 }
 
 nts::Tristate nts::NotComponent::compute(std::size_t pin)

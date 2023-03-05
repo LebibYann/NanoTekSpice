@@ -20,15 +20,24 @@ namespace nts
         True = true,
         False = false
     };
+
+    enum PinType
+    {
+        OUTPUT,
+        INPUT,
+        FREE
+    };
+
     class Link
     {
     public:
-        Link(class IComponent *comp, std::size_t pin) : _comp(comp), _pin(pin) {}
+        Link(class IComponent *comp, std::size_t pin, PinType type) : _comp(comp), _pin(pin), _type(type){}
         Tristate compute();
-
+        PinType getType() const;
     private:
         IComponent *_comp;
         std::size_t _pin;
+        PinType _type;
     };
 
     class Pin
@@ -37,6 +46,8 @@ namespace nts
         Pin();
         Tristate compute();
         void setLink(Link link);
+        void setType(PinType type);
+        PinType getType() const;
         Tristate getState() const;
         void setState(Tristate state);
 
@@ -44,6 +55,7 @@ namespace nts
         bool _computed;
         Tristate _state;
         std::vector<Link> _links;
+        PinType _type;
     };
 
     class IComponent

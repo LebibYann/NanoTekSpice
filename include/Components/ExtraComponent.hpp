@@ -20,17 +20,14 @@ namespace nts
     {
         public:
             SumComponent();
+            std::unique_ptr<nts::IComponent> clone();
     };
 
     class DFlipFlopComponent : public ExtraComponent
     {
         public:
             DFlipFlopComponent();
+            std::unique_ptr<nts::IComponent> clone();
     };
 
-    class TFlipFlopComponent : public ExtraComponent
-    {
-        public:
-            TFlipFlopComponent();
-    };
 }

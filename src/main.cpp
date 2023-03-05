@@ -5,30 +5,39 @@
 ** main
 */
 
-#include "IComponent.hpp"
-#include "SpecialComponent.hpp"
-#include "ElementaryComponent.hpp"
-#include "GateComponent.hpp"
-#include <iostream>
-#include <memory>
+#include "Terminal.hpp"
+#include "FileReader.hpp"
 
-std ::ostream &operator<<(std ::ostream &s, nts ::Tristate v)
+int main(int argc, char **argv)
 {
-    if (v == nts::Undefined)
-        return (s << 'U');
-    return (s << static_cast<int>(v));
-}
+    nts::Circuit circuit;
 
-int main(void)
-{
-    std::unique_ptr<nts::IComponent> gate = std::make_unique<nts::XorComponent>();
-    std::unique_ptr<nts::IComponent> input1 = std::make_unique<nts::TrueComponent>();
-    std::unique_ptr<nts::IComponent> input2 = std::make_unique<nts::FalseComponent>();
-    std::unique_ptr<nts::IComponent> output = std::make_unique<nts::OutputComponent>();
-    std::unique_ptr<nts::IComponent> chip = std::make_unique<nts::Component4001>();
-    chip -> setLink(1, *input1, 1);
-    chip -> setLink(2, *input2, 1);
-    output->setLink(1, *chip, 3);
-    std ::cout << " !(" << input1 -> compute(1) << "||" << input2 -> compute(1) << ")->" << output -> compute (1) << std :: endl ;
+    if (argc != 2)
+        return (84);
+    try{
+        nts::FileReader reader(argv[1], circuit);
+        reader.read();
+    } catch (nts::Circuit::ComponentError &e)
+    {
+        std::cerr << e.what() << std::endl;
+        return (84);
+    } catch (parsing::ParsingError &e)
+    {
+        std::cerr << e.what() << std::endl;
+        return (84);
+    } catch (nts::FileReader::InvalidFileError &e)
+    {
+        std::cerr << e.what() << std::endl;
+        return (84);
+    } catch (nts::Factory::InvalidNameError &e)
+    {
+        std::cerr << e.what() << std::endl;
+        return (84);
+    } catch(nts::IComponent::LinkError &e){
+        std::cerr << e.what() << std::endl;
+        return (84);
+    }
+    nts::Terminal terminal(circuit);
+    terminal.Start();
     return (0);
 }

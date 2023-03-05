@@ -37,6 +37,11 @@ nts::SumComponent::SumComponent()
     setLink(5, *_comps[4], 3);
 }
 
+std::unique_ptr<nts::IComponent> nts::SumComponent::clone()
+{
+    return (std::make_unique<SumComponent>());
+}
+
 nts::DFlipFlopComponent::DFlipFlopComponent()
 {
     _comps.resize(11);
@@ -87,4 +92,9 @@ nts::DFlipFlopComponent::DFlipFlopComponent()
 
     setLink(5, *_comps[7], 3);
     setLink(6, *_comps[8], 3);
+}
+
+std::unique_ptr<nts::IComponent> nts::DFlipFlopComponent::clone()
+{
+    return (std::make_unique<DFlipFlopComponent>());
 }

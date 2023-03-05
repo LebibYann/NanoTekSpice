@@ -20,7 +20,7 @@ namespace nts
         void setState(Tristate state);
         void simulate(std::size_t tick);
         Tristate compute(std::size_t pin);
-        std::unique_ptr<nts::IComponent> nts::InputComponent::clone();
+        std::unique_ptr<nts::IComponent> clone();
     protected:
         Tristate _state;
         bool _changed;
@@ -31,7 +31,7 @@ namespace nts
     public:
         OutputComponent();
         Tristate compute(std::size_t pin);
-        std::unique_ptr<nts::IComponent> nts::OutputComponent::clone();
+        std::unique_ptr<nts::IComponent> clone();
     };
 
     class TrueComponent : public SpecialComponent
@@ -39,7 +39,7 @@ namespace nts
     public:
         TrueComponent();
         Tristate compute(std::size_t pin);
-        std::unique_ptr<nts::IComponent> nts::TrueComponent::clone();
+        std::unique_ptr<nts::IComponent> clone();
     };
 
     class FalseComponent : public SpecialComponent
@@ -47,7 +47,7 @@ namespace nts
     public:
         FalseComponent();
         Tristate compute(std::size_t pin);
-        std::unique_ptr<nts::IComponent> nts::FalseComponent::clone();
+        std::unique_ptr<nts::IComponent> clone();
     };
 
     class ClockComponent : public SpecialComponent
@@ -57,7 +57,7 @@ namespace nts
         void setState(Tristate state);
         void simulate(std::size_t tick);
         Tristate compute(std::size_t pin);
-        std::unique_ptr<nts::IComponent> nts::ClockComponent::clone();
+        std::unique_ptr<nts::IComponent> clone();
     protected:
         Tristate _state;
         bool _changed;

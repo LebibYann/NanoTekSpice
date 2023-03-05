@@ -12,7 +12,7 @@
 
 namespace nts
 {
-    class ExtraComponent : public CircuitComponent
+    class ExtraComponent : public Acomponent
     {
     };
 
@@ -20,6 +20,7 @@ namespace nts
     {
         public:
             SumComponent();
+            nts::Tristate compute(std::size_t pin);
             std::unique_ptr<nts::IComponent> clone();
     };
 
@@ -27,6 +28,7 @@ namespace nts
     {
         public:
             DFlipFlopComponent();
+            nts::Tristate compute(std::size_t pin);
             std::unique_ptr<nts::IComponent> clone();
     };
 

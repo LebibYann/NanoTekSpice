@@ -9,7 +9,7 @@
 
 nts::Pin &nts::Acomponent::getPin(std::size_t pin)
 {
-    if (pin > _npin)
+    if (pin > _npin || pin == 0)
         throw LinkError("Bad link syntax.");
     return (_pins[pin - 1]);
 }
@@ -81,7 +81,7 @@ void nts::Acomponent::simulate(std::size_t tick)
 
 void nts::Acomponent::setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin)
 {
-    if (pin <= _npin)
+    if (pin <= _npin && pin != 0)
     {
         nts::Pin &lpin = (other.getPin(otherPin));
         _pins[pin - 1].setLink(Link(&other, otherPin, lpin.getType()));

@@ -66,10 +66,14 @@ void nts::FileReader::read()
     std::ifstream file(_file);
     std::string line;
 
-    if (!getline(file, line))
-        throw InvalidFileError("Invalid file.");
-    if (line.compare(".chipsets:") != 0)
-        throw InvalidFileError("Invalid file configuration");
+    while (1){
+        if (!getline(file, line))
+            throw InvalidFileError("Invalid file configuration");
+        if (line.compare(".chipsets:") == 0)
+            break;
+        if (*line.begin() != '#' && line.size() != 0)
+            throw InvalidFileError("Invalid file configuration");
+    }
     while (1)
     {
         if (!getline(file, line))

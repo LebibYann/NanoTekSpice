@@ -52,11 +52,13 @@ namespace parsing
     bool is_valid(std::stringstream &stream)
     {
         std::string str;
-
+        
         if (!stream.good())
             return (true);
         stream >> str;
         if (*str.begin() == '#')
+            return (true);
+        if (str.size() == 0)
             return (true);
         return (false);
     }
